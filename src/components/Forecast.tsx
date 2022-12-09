@@ -1,4 +1,4 @@
-import { getHumidityValue, getPop, getSunTime, getWindDirection } from '../helpers';
+import { getHumidityValue, getPop, getSunTime, getVisibilityValue, getWindDirection } from '../helpers';
 import { forecastType } from '../types';
 import Sunrise from './Icons/Sunrise';
 import Sunset from './Icons/Sunset';
@@ -84,7 +84,7 @@ const Forecast = ({ data }: Props): JSX.Element => {
               Math.round(today.wind.deg),
             )}, gusts ${today.wind.gust.toFixed(1)} km/h`}
           />
-          
+
           <Tile
             icon="feels"
             title="Как будто"
@@ -105,9 +105,25 @@ const Forecast = ({ data }: Props): JSX.Element => {
 
           <Tile
             icon="pop"
-            title="Precipitation"
+            title="Осадки"
             info={`${Math.round(today.pop * 1000)}%`}
             description={`${getPop(today.pop)}, облака в ${today.clouds.all}`}
+          />
+
+          <Tile
+            icon="pressure"
+            title="Давление"
+            info={`${today.main.pressure} hPa`}
+            description={`${
+              Math.round(today.main.pressure) < 1013 ? 'ниже' : 'выше'
+            } чем стандарт `}
+          />
+
+          <Tile
+            icon="visibility"
+            title="Видимость"
+            info={`${(today.visibility / 1000).toFixed()} km`}
+            description={getVisibilityValue(today.visibility)}
           />
         </section>
       </div>
