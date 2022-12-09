@@ -48,7 +48,7 @@ const Search = ({ term, options, onInputChange, onOptionSelect, onSubmit }: Prop
           <button
             className="rounded-r-md border-2 border-zinc-100 hover:border-zinc-500
             hover:text-zinc-500 text-zinc-100 px-2 py-1 cursor-pointer"
-            onClick={() => onSubmit}
+            onClick={onSubmit}
           >
             Найти
           </button>
