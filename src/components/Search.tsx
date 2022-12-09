@@ -1,5 +1,6 @@
 import { ChangeEvent } from 'react';
 import { optionType } from '../types';
+import Header from './Header';
 
 type Props = {
   term: string;
@@ -16,12 +17,7 @@ const Search = ({ term, options, onInputChange, onOptionSelect, onSubmit }: Prop
           items-center justify-center md:px-10 lg:p-24 h-full lg:h-[500px] bg-white
           bg-opacity-20 backgrop-blur-ls rounded drop-shadow-lg text-zinc-700"
       >
-        <h1 className="text-4xl font-thin">
-          Прогноз <span className="font-black">Погоды</span>
-        </h1>
-        <p className="text-sm mt-2">
-          Введите ниже место, где вы хотите узнать погоду, и выберите вариант из выпадающего списка.
-        </p>
+        <Header />
 
         <div className="relative flex mt-10 md:mt-4">
           <input
