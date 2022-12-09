@@ -1,4 +1,4 @@
-const Header = (): JSX.Element => (
+export const Header = (): JSX.Element => (
   <>
     <h1 className="text-4xl font-thin">
       Weather <span className="font-black">Forecast</span>
@@ -8,5 +8,3 @@ const Header = (): JSX.Element => (
     </p>
   </>
 );
-
-export default Header;

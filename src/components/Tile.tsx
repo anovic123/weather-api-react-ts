@@ -1,9 +1,4 @@
-import Feels from './Icons/Feels';
-import Humidity from './Icons/Humidity';
-import Pop from './Icons/Pop';
-import Pressure from './Icons/Pressure';
-import Visibility from './Icons/Visibility';
-import Wind from './Icons/Wind';
+import { Feels, Humidity, Pop, Pressure, Visibility, Wind } from './Icons/'
 
 type Props = {
   icon: 'wind' | 'feels' | 'humidity' | 'visibility' | 'pressure' | 'pop';
@@ -21,7 +16,7 @@ const icons = {
   pop: Pop,
 };
 
-const Tile = ({ icon, title, info, description }: Props): JSX.Element => {
+export const Tile = ({ icon, title, info, description }: Props): JSX.Element => {
   const Icon = icons[icon];
   return (
     <article
@@ -37,5 +32,3 @@ const Tile = ({ icon, title, info, description }: Props): JSX.Element => {
     </article>
   );
 };
-
-export default Tile;

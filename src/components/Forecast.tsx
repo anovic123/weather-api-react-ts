@@ -1,8 +1,7 @@
 import { getHumidityValue, getPop, getSunTime, getVisibilityValue, getWindDirection } from '../helpers';
 import { forecastType } from '../types';
-import Sunrise from './Icons/Sunrise';
-import Sunset from './Icons/Sunset';
-import Tile from './Tile';
+import { Sunrise, Sunset } from './Icons/'
+import { Tile } from './';
 
 type Props = {
   data: forecastType;
@@ -16,7 +15,7 @@ const Degree = ({ temp }: { temp: number }): JSX.Element => {
   );
 };
 
-const Forecast = ({ data }: Props): JSX.Element => {
+export const Forecast = ({ data }: Props): JSX.Element => {
   const today = data.list[0];
 
   return (
@@ -131,4 +130,3 @@ const Forecast = ({ data }: Props): JSX.Element => {
   );
 };
 
-export default Forecast;

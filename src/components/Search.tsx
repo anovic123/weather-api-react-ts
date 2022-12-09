@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
 import { optionType } from '../types';
-import Header from './Header';
+import { Header } from './';
 
 type Props = {
   term: string;
@@ -10,7 +10,7 @@ type Props = {
   onSubmit: () => void;
 };
 
-const Search = ({ term, options, onInputChange, onOptionSelect, onSubmit }: Props): JSX.Element => {
+export const Search = ({ term, options, onInputChange, onOptionSelect, onSubmit }: Props): JSX.Element => {
   return (
       <section
         className="w-full md:max-w-[500px] p-4 flex flex-col text-center
@@ -52,5 +52,3 @@ const Search = ({ term, options, onInputChange, onOptionSelect, onSubmit }: Prop
       </section>
   );
 };
-
-export default Search;

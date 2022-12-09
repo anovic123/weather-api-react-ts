@@ -1,4 +1,4 @@
-const Sunset = (): JSX.Element => (
+export const Sunset = (): JSX.Element => (
   <svg
     width="20"
     height="20"
@@ -15,5 +15,3 @@ const Sunset = (): JSX.Element => (
     />
   </svg>
 );
-
-export default Sunset;

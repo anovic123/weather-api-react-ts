@@ -1,5 +1,4 @@
-import Forecast from './components/Forecast';
-import Search from './components/Search';
+import { Forecast, Search } from './components'
 import useForecast from './hooks/useForecast';
 
 const App = (): JSX.Element => {

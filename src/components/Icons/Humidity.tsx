@@ -1,4 +1,4 @@
-const Humidity = (): JSX.Element => (
+export const Humidity = (): JSX.Element => (
   <svg
     width="15"
     height="15"
@@ -15,5 +15,3 @@ const Humidity = (): JSX.Element => (
     />
   </svg>
 );
-
-export default Humidity;
