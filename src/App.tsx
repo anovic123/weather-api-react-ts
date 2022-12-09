@@ -12,7 +12,6 @@ const App = (): JSX.Element => {
     onOptionSelect,
     onSubmit
   } = useForecast()
-  console.log(forecast)
   return (
     <main
       className="flex justify-center items-center bg-gradient-to-br

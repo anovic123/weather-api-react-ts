@@ -1,7 +1,8 @@
-import { getSunTime } from '../helpers';
+import { getHumidityValue, getPop, getSunTime, getWindDirection } from '../helpers';
 import { forecastType } from '../types';
 import Sunrise from './Icons/Sunrise';
 import Sunset from './Icons/Sunset';
+import Tile from './Tile';
 
 type Props = {
   data: forecastType;
@@ -57,11 +58,11 @@ const Forecast = ({ data }: Props): JSX.Element => {
           ))}
         </section>
 
-        <section className="flex justify-between text-zinc-700">
+        <section className="flex flex-wrap justify-between text-zinc-700">
           <div
             className="w-[140px] text-xs font-bold flex flex-col 
             items-center bg-white/20 backdrop-blur-1s rounded drop-shadow-lg
-            py-4 mp-5"
+            py-4 mb-5"
           >
             <Sunrise />
             <span className="mt-2">{getSunTime(data.sunrise)}</span>
@@ -69,14 +70,46 @@ const Forecast = ({ data }: Props): JSX.Element => {
           <div
             className="w-[140px] text-xs font-bold flex flex-col 
             items-center bg-white/20 backdrop-blur-1s rounded drop-shadow-lg
-            py-4 mp-5"
+            py-4 mb-5"
           >
             <Sunset />
             <span className="mt-2">{getSunTime(data.sunset)}</span>
           </div>
-        </section>
 
-        
+          <Tile
+            icon="wind"
+            title="Ветер"
+            info={`${Math.round(today.wind.speed)}km/h`}
+            description={`${getWindDirection(
+              Math.round(today.wind.deg),
+            )}, gusts ${today.wind.gust.toFixed(1)} km/h`}
+          />
+          
+          <Tile
+            icon="feels"
+            title="Как будто"
+            info={<Degree temp={Math.round(today.main.feels_like)} />}
+            description={`Feels ${
+              Math.round(today.main.feels_like) < Math.round(today.main.temp)
+                ? 'Холоднее'
+                : 'Теплее'
+            }`}
+          />
+
+          <Tile
+            icon="humidity"
+            title="Осадки"
+            info={`${today.main.humidity} %`}
+            description={getHumidityValue(today.main.humidity)}
+          />
+
+          <Tile
+            icon="pop"
+            title="Precipitation"
+            info={`${Math.round(today.pop * 1000)}%`}
+            description={`${getPop(today.pop)}, облака в ${today.clouds.all}`}
+          />
+        </section>
       </div>
     </div>
   );
