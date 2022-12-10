@@ -1,10 +1,10 @@
 export const Header = (): JSX.Element => (
   <>
     <h1 className="text-4xl font-thin">
-      Weather <span className="font-black">Forecast</span>
+      Прогноз <span className="font-black">Погоды</span>
     </h1>
     <p className="text-sm mt-2">
-      Enter below a place you want to know the weather of and select an option from dropdown
+      Введите ниже место, где вы хотите узнать погоду, и выберите вариант из выпадающего списка.
     </p>
   </>
 );
