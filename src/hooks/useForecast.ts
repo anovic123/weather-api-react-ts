@@ -1,8 +1,8 @@
-import { useState, useEffect, ChangeEvent } from "react";
-import { optionType, forecastType } from "./../types/index";
+import { useState, useEffect, ChangeEvent } from 'react';
+import { optionType, forecastType } from './../types/index';
 
-const BASE_URL = 'http://api.openweathermap.org'
-const API_KEY = '2b7757efb05d048f385fff21bd97b2f8'
+const BASE_URL = 'https://api.openweathermap.org';
+const API_KEY = '2b7757efb05d048f385fff21bd97b2f8';
 
 const useForecast = () => {
   const [term, setTerm] = useState<string>('');
@@ -11,12 +11,10 @@ const useForecast = () => {
   const [forecast, setForecast] = useState<forecastType | null>(null);
 
   const getSearchOptions = (value: string) => {
-    fetch(
-      `${BASE_URL}/geo/1.0/direct?q=${value.trim()},&limit=${5}&appid=${API_KEY}`,
-    )
+    fetch(`${BASE_URL}/geo/1.0/direct?q=${value.trim()},&limit=${5}&appid=${API_KEY}`)
       .then((res) => res.json())
       .then((data) => setOptions(data))
-      .catch(e => console.log(e))
+      .catch((e) => console.log(e));
   };
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -34,13 +32,13 @@ const useForecast = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-
         const forecastData = {
           ...data.city,
           list: data.list.slice(0, 16),
-        }
-        setForecast(forecastData)
-      }).catch(e => console.log(e));
+        };
+        setForecast(forecastData);
+      })
+      .catch((e) => console.log(e));
   };
 
   const onSubmit = () => {
@@ -61,9 +59,13 @@ const useForecast = () => {
   }, [city]);
 
   return {
-    term, options, forecast, onInputChange, onOptionSelect, onSubmit
-  }
-
-}
+    term,
+    options,
+    forecast,
+    onInputChange,
+    onOptionSelect,
+    onSubmit,
+  };
+};
 
 export default useForecast;
